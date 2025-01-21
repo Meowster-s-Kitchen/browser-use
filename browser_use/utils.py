@@ -52,3 +52,20 @@ def singleton(cls):
 		return instance[0]
 
 	return wrapper
+
+
+from typing import Literal, Union, Optional
+def print_color(text, color:Literal['red','green','blue','yellow','purple','cyan','white','reset'] = 'white'):
+
+    colors = {
+        'red': '\033[91m',
+        'green': '\033[92m',
+        'blue': '\033[94m',
+        'yellow': '\033[93m',
+        'purple': '\033[95m',
+        'cyan': '\033[96m',
+        'white': '\033[97m',
+        'reset': '\033[0m' 
+    }
+    
+    print(f"{colors.get(color, '')}{text}{colors['reset']}")
